@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Birthday Surprise ✨</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 15%,#431653,#120b20 45%,#05050b);color:#fff;font-family:Georgia,serif;overflow-x:hidden}
+#stars{position:fixed;inset:0;pointer-events:none}.s{position:absolute;width:3px;height:3px;background:white;border-radius:50%;opacity:.7;animation:t 3s infinite}@keyframes t{50%{opacity:.1}}
+.screen{display:none;min-height:100vh;place-items:center;padding:20px}.active{display:grid}.card{width:min(92vw,650px);padding:32px 22px;border:1px solid #e9cb7766;border-radius:28px;background:#ffffff0d;backdrop-filter:blur(14px);box-shadow:0 0 60px #d95cff22}
+h1{font-size:clamp(34px,8vw,62px);text-align:center;background:linear-gradient(90deg,#fff,#ffd0e9,#edca69,#fff);-webkit-background-clip:text;color:transparent}h2{text-align:center;font-size:clamp(25px,6vw,42px)}p{line-height:1.75;color:#f2e5f1;text-align:center}.count{text-align:center;font-size:clamp(75px,20vw,145px);color:#ffe5a0;text-shadow:0 0 35px #ff63ce}
+.gift,.bouquet,.ribbon,.cake{text-align:center;font-size:105px;animation:f 2s infinite}@keyframes f{50%{transform:translateY(-8px)}}.options{display:grid;gap:11px;max-width:430px;margin:22px auto}.buttons{text-align:center}button{padding:13px 22px;margin:6px;border:1px solid #edce7a88;border-radius:999px;background:linear-gradient(135deg,#ffb5dc,#ad68ee);font-weight:bold;font-size:16px;cursor:pointer}
+.cakewords{text-align:center;color:#ffd98a;font-size:clamp(25px,7vw,48px);letter-spacing:2px;text-shadow:0 0 20px #ff6ac8}.candles{text-align:center;font-size:30px}.message{max-height:58vh;overflow:auto;background:#0003;padding:18px;border-radius:18px;text-align:left}.message p{text-align:left}.final{padding:22px;border:1px solid #edce7a66;border-radius:22px;background:#ffb5dc12}
+
+.cake{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;transition:transform .55s ease,filter .55s ease}
+.cake.cutnow{transform:scale(1.18) rotate(-4deg);filter:drop-shadow(0 0 28px #ffd86a)}
+.pop{font-size:80px;animation:pop .7s ease-in-out infinite alternate}
+@keyframes pop{to{transform:scale(1.12) rotate(4deg);filter:drop-shadow(0 0 25px #ff75d8)}}
+.blast-item{position:fixed;left:50%;top:55%;z-index:999;pointer-events:none;will-change:transform,opacity;transition:transform 1.5s cubic-bezier(.15,.8,.2,1),opacity 1.5s ease}
+</style>
+<style id="premium-redesign">
+:root{
+  --royal-gold:#b8892e;
+  --royal-gold-2:#e6c46a;
+  --deep-black:#030303;
+  --soft-black:#090909;
+}
+body{
+  background:
+    radial-gradient(circle at 50% 8%, rgba(184,137,46,.16), transparent 28%),
+    radial-gradient(circle at 10% 85%, rgba(184,137,46,.07), transparent 25%),
+    #030303 !important;
+  color:#f8f1df !important;
+}
+body:before{
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:1;
+  background:
+    linear-gradient(90deg, transparent 0 8%, rgba(230,196,106,.035) 50%, transparent 92%),
+    radial-gradient(circle at 50% 0, rgba(255,220,120,.08), transparent 38%);
+  mix-blend-mode:screen;
+}
+.screen{position:relative; overflow:hidden;}
+.screen:after{
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(circle, rgba(230,196,106,.75) 0 1px, transparent 1.7px),
+    radial-gradient(circle, rgba(255,255,255,.45) 0 1px, transparent 1.5px);
+  background-size: 105px 105px, 170px 170px;
+  opacity:.12;
+  animation: royalDust 14s linear infinite;
+}
+.screen > *{position:relative; z-index:2;}
+@keyframes royalDust{from{transform:translateY(0)}to{transform:translateY(-105px)}}
+
+.premium-chandelier{
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  width:190px; height:105px; z-index:1; pointer-events:none;
+  opacity:.9;
+}
+.premium-chandelier:before{
+  content:""; position:absolute; left:50%; top:0; width:2px; height:48px;
+  background:linear-gradient(#e6c46a,transparent);
+  box-shadow:0 0 14px #e6c46a;
+}
+.premium-chandelier:after{
+  content:""; position:absolute; left:50%; top:42px; transform:translateX(-50%);
+  width:150px; height:44px; border:1px solid rgba(230,196,106,.7);
+  border-top:0; border-radius:0 0 80px 80px;
+  box-shadow:0 10px 28px rgba(230,196,106,.16);
+}
+.premium-chandelier i{
+  position:absolute; top:53px; width:10px; height:24px;
+  background:radial-gradient(circle at 50% 20%,#fff6bf 0 12%,#e6c46a 35%,transparent 70%);
+  filter:drop-shadow(0 0 9px #e6c46a);
+}
+.premium-chandelier i:nth-child(1){left:30px}.premium-chandelier i:nth-child(2){left:70px}.premium-chandelier i:nth-child(3){right:70px}.premium-chandelier i:nth-child(4){right:30px}
+
+.royal-card, .card, .box, .question, .message-card{
+  border-color:rgba(230,196,106,.42) !important;
+  box-shadow:0 0 0 1px rgba(230,196,106,.07), 0 20px 70px rgba(0,0,0,.62), 0 0 42px rgba(184,137,46,.10) !important;
+  background:linear-gradient(145deg,rgba(18,16,12,.93),rgba(5,5,5,.97)) !important;
+}
+button{
+  border-color:rgba(230,196,106,.58) !important;
+  background:linear-gradient(135deg,#8f681e,#d5b254,#8f681e) !important;
+  color:#090806 !important;
+  box-shadow:0 8px 28px rgba(184,137,46,.23), inset 0 1px rgba(255,247,205,.45) !important;
+  font-weight:800 !important;
+}
+button:hover{filter:brightness(1.08);transform:translateY(-2px);}
+h1,h2,h3,.title,.heading{color:#f1d27b !important;text-shadow:0 0 22px rgba(230,196,106,.22);}
+
+.premium-balloon{
+  position:absolute; width:38px; height:49px; border-radius:50% 50% 46% 46%;
+  background:
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.8),transparent 11%),
+    linear-gradient(135deg,#f0d27c,#8c641e 72%);
+  box-shadow:inset -7px -10px 14px rgba(0,0,0,.32),0 0 22px rgba(230,196,106,.2);
+  opacity:.72; z-index:1; pointer-events:none;
+}
+.premium-balloon:after{content:"";position:absolute;bottom:-54px;left:50%;height:55px;width:1px;background:linear-gradient(#b8892e,transparent);}
+.pb1{left:5%;top:18%;animation:floatA 5.5s ease-in-out infinite}.pb2{right:7%;top:25%;animation:floatB 6.5s ease-in-out infinite}.pb3{left:10%;bottom:18%;transform:scale(.75);animation:floatB 7s ease-in-out infinite}.pb4{right:11%;bottom:14%;transform:scale(.82);animation:floatA 6s ease-in-out infinite}
+@keyframes floatA{50%{transform:translateY(-17px) rotate(4deg)}}
+@keyframes floatB{50%{transform:translateY(14px) rotate(-5deg)}}
+
+.premium-ribbon{
+  position:absolute; width:100px; height:180px; z-index:1; pointer-events:none; opacity:.78;
+}
+.premium-ribbon:before,.premium-ribbon:after{
+  content:"";position:absolute;top:0;width:22px;height:175px;
+  background:linear-gradient(90deg,rgba(74,45,8,.4),#d2ad4e 45%,rgba(255,238,165,.55) 55%,#765117);
+  border-radius:0 0 18px 18px; box-shadow:0 0 18px rgba(230,196,106,.12);
+}
+.premium-ribbon:before{left:15px;transform:rotate(10deg)}.premium-ribbon:after{right:15px;transform:rotate(-10deg)}
+.pr1{left:-10px;top:28px}.pr2{right:-10px;top:30px;transform:scaleX(-1)}
+
+.cake-premium{
+  filter:drop-shadow(0 0 24px rgba(230,196,106,.28));
+}
+.cake-premium.tap-ready{animation:cakeBreath 2.3s ease-in-out infinite}
+@keyframes cakeBreath{50%{transform:translateY(-4px) scale(1.025);filter:drop-shadow(0 0 35px rgba(230,196,106,.46))}}
+
+@keyframes luxuryReveal{
+  from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(5px)}
+  to{opacity:1;transform:none;filter:none}
+}
+.screen.active > *{animation:luxuryReveal .75s cubic-bezier(.2,.8,.2,1) both}
+</style>
+
+</head><body>
+
+<div class="premium-chandelier" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="premium-balloon pb1"></div><div class="premium-balloon pb2"></div>
+<div class="premium-balloon pb3"></div><div class="premium-balloon pb4"></div>
+<div class="premium-ribbon pr1"></div><div class="premium-ribbon pr2"></div>
+<div id="stars"></div>
+
+<section id="opening" class="screen active"><div class="card"><div class="gift">🎁</div><h1>Birthday Surprise</h1><p>A little magical surprise is waiting for you... ✨💗</p><p>Are you ready, Birthday Girl? 🌙✨</p><div class="buttons"><button onclick="go('q1')">YES 💖</button><button onclick="go('q1')">NO 🙈</button></div></div></section>
+
+<section id="q1" class="screen"><div class="card"><h2>Question 1 💫</h2><p>Aapka favourite colour kaunsa hai? 🎨✨</p><div class="options"><button onclick="answerQ('q2')">Pink 🌸</button><button onclick="answerQ('q2')">Purple 💜</button><button onclick="answerQ('q2')">Black 🖤</button><button onclick="answerQ('q2')">Blue 🦋</button></div></div></section>
+<section id="q2" class="screen"><div class="card"><h2>Question 2 👀💗</h2><p>Aap itni sundr kyuu haiii? 😭✨</p><div class="options"><button onclick="answerQ('q3')">Bas hoon... pata nahi 😭💗</button><button onclick="answerQ('q3')">Kyuki main aisi hi hoon 😌✨</button></div></div></section>
+<section id="q3" class="screen"><div class="card"><h2>Question 3 😂🎀</h2><p>Agar poora din sirf ek hi kaam karna ho, toh kya karogi? 😂</p><div class="options"><button onclick="answerQ('cakeReady')">Sona 😴</button><button onclick="answerQ('cakeReady')">Khana 🍕</button><button onclick="answerQ('cakeReady')">Phone chalana 📱</button><button onclick="answerQ('cakeReady')">Teeno ek saath 😂</button></div></div></section>
+<section id="answerPop" class="screen"><div class="card"><div class="pop">💖✨🎉</div><h1>WOW! Correct answer, beautiful birthday girl! 💖✨</h1><p>Haan haan, bilkul correct! 😂🎀</p></div></section>
+<section id="cakeReady" class="screen"><div class="card"><h2>🎂 Are You Ready For Cake Cutting? 🎂</h2><p>Kya hum cake cutting ke liye permission lein? 😍✨</p><div class="buttons"><button onclick="go('wishReady')">YESSS! 🎂💖</button><button onclick="go('wishReady')">Haan chalo 😭🎀</button></div></div></section>
+<section id="wishReady" class="screen"><div class="card"><h2>Make a Wish First... ✨🎂</h2><p>Before we start the countdown, make your birthday wish. 💖🌙</p><div class="buttons"><button onclick="go('wishConfirm')">I Made My Wish 💫</button></div></div></section>
+<section id="wishConfirm" class="screen"><div class="card"><h2>Did You Make Your Wish? 💖</h2><p>Say YES and the cake-cutting countdown will begin! 🎂✨</p><div class="buttons"><button onclick="startCakeCountdown()">YES 💗</button></div></div></section>
+<section id="cakeCount" class="screen"><div class="card"><h1>Get Ready... 🎂✨</h1><div id="cakeCountNum" class="count">5</div><p>Cake cutting starts in... 💖</p></div></section>
+<section id="ribbon" class="screen"><div class="card"><h1>One last little touch... 🎀</h1><div class="ribbon" onclick="cut()">🎀</div><p>Tap the ribbon to reveal the cake ✨</p></div></section>
+<section id="cake" class="screen"><div class="card"><h2>Ready to Cut the Cake? 🎂✨</h2><p>Ab cake par tap karo! Cake cut hote hue dikhega, phir full birthday blast! 🎉🎈</p><div class="cake" id="cakeTap" onclick="cakeBlast()">🎂</div><div class="candles">🕯️ 🕯️ 🕯️</div><div class="cakewords">HAPPY BIRTHDAY BABE</div><p id="cakeHint">👆 TAP THE CAKE! 🎂</p></div></section>
+<section id="nextReady" class="screen"><div class="card"><div style="font-size:75px">🎈🎉✨</div><h1>Are You Ready For Next? 💖</h1><p>Abhi toh aur surprise baaki haiii 😭🎀</p><div class="buttons"><button onclick="go('message')">YESSS 💗</button></div></div></section>
+
+<section id="message"<section id="message" class="screen"><div class="card"><h2>For You, With All My Heart 💗</h2><div class="message">
+<p>🎂🥳 Happy Birthday, my love, my cutieeee! 🥳🎂💗</p>
+<p>Today is your special day, and I just want you to know how truly special you are. 🫂❤️✨</p>
+<p>I pray that God blesses you with everything your heart wishes for. May all your dreams come true, may every little wish of yours be fulfilled, and may you always have countless reasons to smile. 🥹💖🫶</p>
+<p>May you live a long, beautiful and happy life, filled with love, peace, success, laughter and the most beautiful memories. ♾️✨🌸</p>
+<p>I hope this birthday and every day that comes after it brings something beautiful into your life. 🎂🎀💫</p>
+<p>Always keep smiling, okay? 🥺❤️ I hope no sadness ever finds its way into your life, and whenever life gets a little difficult, may you always find the strength to smile again. 🫂💗</p>
+<p>Please always take care of yourself, stay happy, eat well, smile a lot, and never forget how precious you are. 🌷🫶✨</p>
+<p>I really hope this birthday becomes one of the best birthdays of your life. 🎂🥳🎈 May this day be filled with happiness, laughter, surprises, cake, love and all the little things that make you happy. 🎁🍰🎀💖</p>
+<p>May God always stay by your side and protect you, guide you and bless you with happiness wherever you go. 🙏❤️✨</p>
+<p>My love, you are truly one of the best. ❤️🫂 Never stop being the beautiful, cute and amazing person you are. 🥹🎀</p>
+<p>🎂🥳 HAPPIEST BIRTHDAY, MY LOVE, MY CUTIEEEEE! 🥳🎂</p>
+<p>🎈💗 May your smile stay forever.<br>🫂❤️ May your heart always stay happy.<br>🎁✨ May all your wishes come true.<br>🌸🦋 May your life always be beautiful.<br>🍰🎀 And may this year be YOUR BEST YEAR YET! 💫</p>
+<p>Stay happy. Stay blessed. Keep smiling. Always take care of yourself. 🫂❤️✨</p>
+</div><div class="buttons"><button onclick="go('bouquet')">One more surprise 💐</button></div></div></section>
+
+<section id="bouquet" class="screen"><div class="card"><div class="bouquet">💐</div><h1>A Little Bouquet For You 🌸</h1><p>Because one birthday wish could never be enough. ✨🦋</p><div class="buttons"><button onclick="go('finalcard')">Open the card 💌</button></div></div></section>
+<section id="finalcard" class="screen"><div class="card"><h1>One Last Thing... 💗</h1><div class="final"><h2>I love you sooo much betuuu 😘😚❤️🫂💖</h2><p>May you get married to your boyfriend and live a beautiful, happy life together. ❤️🫂✨ Stay happy, stay blessed, stay safe, and always keep smiling. 😘💖🌸</p></div><div class="buttons"><button onclick="go('loveNote')">Make it magical ✨</button></div></div></section>
+<section id="loveNote" class="screen"><div class="card"><div style="font-size:75px">🎁💗🦋</div><h1>A Little Thing From My Heart... 💖</h1><p style="font-size:20px">Bas itna yaad rakhna... tumhari smile bohot precious hai. 🥹❤️</p><p>May you always stay happy, keep smiling, and have a life full of beautiful little moments. 🌸✨</p><p>And whenever you look back at this surprise, I hope it brings the cutest smile to your face. 🫂💗</p><div class="buttons"><button onclick="go('end')">One Last Surprise ✨</button></div></div></section>
+<section id="end" class="screen"><div class="card"><div style="font-size:80px;text-align:center">🌟🦋💫</div><h1>HAPPY BIRTHDAY! 🎂💗</h1><p>May your whole year sparkle with happiness, love, laughter and beautiful surprises. ✨🌸🎀</p><div class="buttons"><button onclick="location.reload()">Replay 🔁</button></div></div></section>
+
+<script>
+const ids=['opening','q1','q2','q3','answerPop','cakeReady','wishReady','wishConfirm','cakeCount','ribbon','cake','nextReady','message','bouquet','finalcard','loveNote','end'];
+function go(x){ids.forEach(id=>{const e=document.getElementById(id);if(e)e.classList.remove('active')});document.getElementById(x).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+let popTimer;
+function answerQ(next){go('answerPop');clearTimeout(popTimer);popTimer=setTimeout(()=>go(next),850)}
+function cut(){go('cake')}
+function startCakeCountdown(){
+ go('cakeCount');let n=5,c=document.getElementById('cakeCountNum');c.textContent=n;
+ const t=setInterval(()=>{n--;if(n>0)c.textContent=n;else{clearInterval(t);c.textContent='🎂';setTimeout(()=>go('ribbon'),500)}},850);
+}
+let cakeDone=false;
+function cakeBlast(){
+ if(cakeDone)return;cakeDone=true;const cake=document.getElementById('cakeTap');cake.classList.add('cutnow');
+ setTimeout(()=>cake.textContent='🍰',260);document.getElementById('cakeHint').textContent='🎉 CAKE CUT! HAPPY BIRTHDAY! 🎉<div style="font-size:.8rem;opacity:.7;margin-top:10px;letter-spacing:.12em">ROYAL CELEBRATION • 10 SECONDS ✨</div>';
+ const items=['🎈','🎈','🎈','🎈','🎉','💖','✨','🌸','🎀','⭐','🦋','💫','🎊','🍰'];
+ for(let i=0;i<65;i++){const el=document.createElement('span');el.className='blast-item';el.textContent=items[Math.floor(Math.random()*items.length)];el.style.fontSize=(18+Math.random()*26)+'px';document.body.appendChild(el);
+ requestAnimationFrame(()=>{const x=(Math.random()*2-1)*48,y=-(Math.random()*55+8),r=Math.random()*900-450;el.style.transform=`translate(${x}vw,${y}vh) rotate(${r}deg) scale(${.8+Math.random()*.8})`;el.style.opacity='0'});setTimeout(()=>el.remove(),1600)}
+ setTimeout(()=>go('nextReady'),1700);
+}
+for(let i=0;i<70;i++){let s=document.createElement('i');s.className='s';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*3+'s';document.getElementById('stars').appendChild(s)}
+</script></body></html>
